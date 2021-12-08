@@ -1,0 +1,14 @@
+{
+  "name": "chirper-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "chirper.js",
+  "scripts": {
+    "build": "esbuild ./src/chirper.js --bundle --minify --platform=browser --target=chrome58,edge16,firefox57,safari11 --outfile=chirper.js"
+  },
+  "author": "mimonelu",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.11.12"
+  }
+}

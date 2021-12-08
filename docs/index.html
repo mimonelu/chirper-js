@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <script src="../chirper.js"></script>
+    <style>
+
+.button-container button {
+  font-size: 1.5rem;
+  margin: 0 1rem 1rem 0;
+}
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Chirper.js</h1>
+    </header>
+    <ul>
+      <li>Chirper.js is small library can create simple sound effects.</li>
+      <li>Press the button to play the sound. <b>However, you must first click anywhere on the page before it will play.</b></li>
+      <li>Each sound effects can be changed by arguments. Please look at this page. <a href="https://mimonelu.itch.io/chirping-machine" target="_blank">Chirping Machine</a></li>
+    </ul>
+    <div class="button-container"></div>
+    <footer>
+      <small>&copy; 2021 mimonelu</small>
+    </footer>
+    <script>
+
+const chirper = new Chirper()
+const $buttonContainer = document.querySelector('.button-container')
+for (const sampleId in ChirperSamples) {
+  const $button = document.createElement('button')
+  $button.innerText = sampleId
+  $button.onclick = () => {
+    const instance = chirper.create(sampleId, {
+      // rate: 44100,
+      second: 0.5,
+      volume: 0.5,
+      volumeEasing: 'out',
+      special: 0.5,
+      specialEasing: 'out',
+    })
+    instance.play()
+  }
+  $buttonContainer.appendChild($button)
+}
+
+    </script>
+  </body>
+</html>
